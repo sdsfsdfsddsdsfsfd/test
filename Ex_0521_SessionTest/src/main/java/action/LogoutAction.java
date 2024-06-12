@@ -1,0 +1,27 @@
+package action;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class LogoutAction
+ */
+@WebServlet("/logout.do")
+public class LogoutAction extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		//session영역에서 user저장된 데이터 제거
+		session.removeAttribute("user");
+		
+		response.sendRedirect("login_form.jsp");
+	}
+
+}

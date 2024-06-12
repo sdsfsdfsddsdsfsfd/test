@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="s"><!-- //namespace : 별칭 -->
+	<select id="sawon_list" resultType="vo.SawonVO">
+	<!-- resultType : 자료형, 클래스 타입반환하는지 정해주는 속성. -->
+	<!-- 리스트에 담기 위해서 VO형태에 담아야 함 -->
+ 	<!-- tag 종류 : select, delete, update, selectone, selectlist -->
+  		select * from sawon <!-- ;은 오류남 -->
+  	</select>
+  	<select id="sawon_list_deptno" resultType="vo.SawonVO" parameterType="int"><!-- 파라미터 타입도 알아야 함 -->
+  		<!-- 파라미터 받을때 사용하는 문법 : #.  임의의 변수 에 파라미터 받음 -->
+  		select * from sawon where deptno=#{deptno} 
+  		<!-- #{변수명}변수명에 파라미터 받음. 그래도 웬만하면 컬럼명과 이름 맞추기 -->
+  	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
